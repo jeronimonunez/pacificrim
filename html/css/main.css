@@ -56,111 +56,162 @@ textarea {
 }
 
 
-/* ===== Initializr Styles ==================================================
-   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
-   ========================================================================== */
 
-body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
-}
-
-.wrapper {
-    width: 90%;
-    margin: 0 5%;
-}
-
-/* ===================
-    ALL: Orange Theme
-   =================== */
-
-.header-container {
-    border-bottom: 20px solid #e44d26;
-}
-
-.footer-container,
-.main aside {
-    border-top: 20px solid #e44d26;
-}
-
-.header-container,
-.footer-container,
-.main aside {
-    background: #f16529;
-}
-
-.title {
-    color: white;
-}
-
-/* ==============
-    MOBILE: Menu
-   ============== */
-
-nav ul {
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 15px 0;
-
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-
-    color: white;
-    background: #e44d26;
-}
-
-nav a:hover,
-nav a:visited {
-    color: white;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* ==============
-    MOBILE: Main
-   ============== */
-
-.main {
-    padding: 30px 0;
-}
-
-.main article h1 {
-    font-size: 2em;
-}
-
-.main aside {
-    color: white;
-    padding: 0px 5% 10px;
-}
-
-.footer-container footer {
-    color: white;
-    padding: 20px 0;
-}
-
-/* ===============
-    ALL: IE Fixes
-   =============== */
-
-.ie7 .title {
-    padding-top: 20px;
-}
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#pixels{
+    color: #48941A;
+}
+
+.float-left{
+    float: left;    
+    margin: 0 0 0 20px;
+}
+
+.float-right{
+    float: right;
+    margin: 0 20px 0 0;
+}
+
+.center{
+    font-size: 2.5em;
+    padding: 80px 0 0 0;
+    text-align: center;
+}
+
+#nav{
+    list-style: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 50%;
+    margin-top: -65px;
+}
+
+#nav li{
+    margin: 0; 
+    text-align: center;
+    line-height: 2em;
+}
+
+#intro, #about{
+    width: 100%;
+}
+
+#intro{
+    background:url(../img/home-1.jpg) 50% 0 no-repeat fixed;
+    background-size: cover;
+    color: white;
+    height: 1300px;
+    margin: 0 auto;
+    padding: 0;
+}
+#intro .overlay {
+    background: #000;
+    width: 100%;
+    height: 1300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+#intro .magic{
+    background: url(../img/beyond-creative.png) 63% 50% no-repeat fixed;
+    height: 1300px;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    z-index: 200;
+}
+#intro .findout{
+    background: url(../img/findout.png) 63% 50% no-repeat fixed;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    z-index: 200;
+}
+#intro .findout img {
+    margin-left: 233px;
+}
+
+#about{
+    background: url(../img/secondBG.jpg) 50% 0 no-repeat fixed;
+    color: white;
+    height: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+#about .bg{
+    background: url(../img/trainers.png) 50% 0 no-repeat fixed;
+    height: 1300px;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    width: 900px;
+    z-index: 200;
+}
+
+#team{
+    background: url(../img/thirdBG.jpg) 50% 0 no-repeat fixed;
+    color: white;
+    height: 1300px;
+    padding: 100px 0 0 0;   
+}
+
+#portfolio{
+    background: red;
+    color: white;
+    height: 1300px;
+    padding: 100px 0 0 0; 
+}
+#contact{
+    background: black;
+    color: white;
+    height: 1300px;
+    padding: 100px 0 0 0; 
+}
+
+.story{
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.story .float-left, .story .float-right{
+    padding: 100px 0 0 0;
+    position: relative;
+    width: 350px;   
+}
 
 
 
-
+#header {
+    position: fixed;
+    width: 233px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 9999;
+}
+.brand {
+    margin: 1em 0;
+    text-align: center;
+}
 
 
 
