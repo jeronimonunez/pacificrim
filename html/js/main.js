@@ -14,7 +14,11 @@ jQuery(document).ready(function($) {
 		$introOverlay = $intro.find('.overlay'),
 		$introText = $intro.find('.magic'),
 		$header = $('#header'),
-		$findout = $('.findout');
+		$findout = $('.findout'),
+
+        $container = $('.container'),
+
+        $closeBtn = $('.close-btn');
 
     function init() {
 
@@ -40,6 +44,7 @@ jQuery(document).ready(function($) {
         aboutSetup();
         portfolioSetup();
         aboutFunctionality();
+        portfolioFunctionality();
     }
 
     function aboutSetup () {
@@ -55,15 +60,22 @@ jQuery(document).ready(function($) {
     }
 
     function portfolioSetup () {
-    	$('#portfolio').height($(window).height());
+        var h = $(window).height(),
+            w = $(window).width();
+
+    	$('#portfolio').height( h );
 
     	$('.three-rows').css({
-    		'width' 	: $(window).width() - mini,
-    		'height' 	: $(window).height(),
+    		'width' 	: w - mini,
+    		'height' 	: h,
     		'left' 		: mini,
     		'position'	: 'absolute',
     		'top'		: 0
     	});
+
+        $('.portfolio-element').width( w );
+        $('.portfolio-article-hero').height( h ).width( w );
+        $('.content-container').width( w - mini - 30 - 30 ).css('margin-left', mini+30);
     }
 
     function aboutFunctionality () {
@@ -73,6 +85,56 @@ jQuery(document).ready(function($) {
     		else if($that.hasClass('standby')) $that.removeClass('standby').siblings().removeClass('active standby');
     		else $that.addClass('active').siblings().addClass('standby');
     	});
+    }
+
+    function portfolioFunctionality () {
+        $('.three-rows article').click(function () {
+            
+            disableWaypoints();
+            
+            var target = $(this).data('ref');
+            
+            $container.animate({
+                'margin-left' : '-100%'
+            }, function () {
+                $container.hide();
+                $('body').scrollTop(0);
+
+                $( target ).fadeIn(300, function () {
+                    $header.addClass('mini');
+                });
+            });
+        });
+
+
+        $closeBtn.click( closeElement );
+    }
+
+    function closeElement () {
+        $('.portfolio-element').fadeOut(300, function () {
+            $container.show();
+            $(window).scrollTop($('#portfolio').offset().top);
+            $container.animate({
+                'margin-left' : '0'
+            });
+            enableWaypoints();
+        })
+    }
+
+    function disableWaypoints () {
+        $('#intro').waypoint('disable');
+        $('#about').waypoint('disable');
+        $('#team').waypoint('disable');
+        $('#portfolio').waypoint('disable');
+        $('#contact').waypoint('disable');
+    }
+
+    function enableWaypoints () {
+        $('#intro').waypoint('enable');
+        $('#about').waypoint('enable');
+        $('#team').waypoint('enable');
+        $('#portfolio').waypoint('enable');
+        $('#contact').waypoint('enable');
     }
 
     function handleLoadComplete(event) {
@@ -107,7 +169,7 @@ jQuery(document).ready(function($) {
     }
 
     function wp() {
-    	$('#about').waypoint(function(direction) {
+    	$('#intro').waypoint(function(direction) {
     		$('#nav li a').removeClass('active');
     		$header.removeClass('mini');
 		});
