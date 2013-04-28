@@ -2,6 +2,20 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:400,700);
+
+@font-face
+{
+font-family: Univers;
+    src: url('lte50136.ttf'); /* IE9 */
+}
+
+@font-face
+{
+font-family: UniversBold;
+    src: url('lte50140.ttf'); /* IE9 */
+}
+
 html,
 button,
 input,
@@ -14,6 +28,7 @@ body {
     font-size: 1em;
     line-height: 1.4;
     background: #000;
+    font-family: 'Univers', 'Roboto', sans-serif;
 }
 
 ::-moz-selection {
@@ -103,6 +118,7 @@ a{
     height: 1300px;
     margin: 0 auto;
     padding: 0;
+    position: relative;
 }
 #intro .overlay {
     background: #000;
@@ -117,13 +133,13 @@ a{
     background: url(../img/beyond-creative.png) 50% 50% no-repeat fixed;
     height: 1300px;
     margin: 0 auto;
-    padding: 0;
+    padding: 200px 0 0 0;
     width: 100%;
     z-index: 200;
-    position: absolute;
     display: none;
+    position: absolute;
 }
-#intro .findout{
+/*#intro .findout{
     background: url(../img/findout.png) 50% 100% no-repeat fixed;
     height: 100%;
     margin: 0 auto;
@@ -133,9 +149,40 @@ a{
     position: absolute;
     top: 0;
     display: none;
+}*/
+.findout{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -56px;
+    width: 113px;
+    height: 57px;
 }
-#intro .findout img {
-    margin-left: 233px;
+.findout a{
+    display: block;
+
+}
+.findout a.why{
+    text-indent: -9999px;
+    width: 113px;
+    height: 57px;
+    background: url(../img/findout.png) 50% 100% no-repeat;
+}
+.findout a.how{
+    text-indent: -9999px;
+    width: 113px;
+    height: 57px;
+    background: url(../img/findouthow.png) 50% 100% no-repeat;
+}
+.findout a.who{
+    text-indent: -9999px;
+    width: 113px;
+    height: 57px;
+    background: url(../img/findoutwho.png) 50% 100% no-repeat;
+}
+.findouthow, 
+.findoutwho {
+    display: none;
 }
 
 
@@ -366,7 +413,6 @@ a{
     width: 158px;
 }
 #header.mini a {
-    font-size: 1.2em;
 }
 #header.mini .brand img{
     width: 80%;
@@ -387,6 +433,8 @@ a{
 }
 #nav li a.active{
     font-weight: bold;
+    font-family: 'UniversBold', 'Roboto'. sans-serif;
+    font-size: 1.2em;
 }
 .brand {
     margin: 1em 0;
@@ -577,6 +625,8 @@ a{
 
     padding: 1%;
     margin: 0 1%;
+
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .boxx h2{
     font-size: 1.4em;

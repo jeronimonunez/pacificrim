@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
         	"img/home-3.jpg", 
         	"img/home-4.jpg", 
         	"img/home-5.jpg", 
-        	"img/home-6.jpg"
+            "img/home-6.jpg"
         ];
 
         // Create a preloader. There is no manifest added to it up-front, we will add items on-demand.
@@ -45,33 +45,87 @@ jQuery(document).ready(function($) {
         portfolioSetup();
         aboutFunctionality();
         portfolioFunctionality();
+
+        wp();
+        
+        $('#nav').localScroll(800);
+
+        $('#home').click(function () {
+            $.scrollTo(0);
+        });
+        
+
+        $(window).resize(function () {
+            aboutSetup();
+            portfolioSetup();
+        });
+
+        $('#intro').parallax("50%", 0.1);
+        $('#about').parallax("50%", 0.1);
+        // $('.magic').parallax("50%", 0.4);
+        $('#history').parallax("50%", 0.4);
+        $('#process').parallax("50%", 0.4);
+        $('#services').parallax("50%", 0.4);
+        $('#team').parallax("50%", 0.3);
+        $('#portfolio').parallax("50%", 0.3);
+        $('#contact').parallax("50%", 0.3);
+
+        $findout.find('a').click(function(e){
+            e.preventDefault();
+            var ref=$(this).attr('href');
+            $('html, body').animate({
+                scrollTop: $(ref).offset().top
+             }, 2000);
+        });
+
+        // Quick Connect Form AJAX validation and submition
+        // Validation Plugin : http://bassistance.de/jquery-plugins/jquery-plugin-validation/
+        // Form Ajax Plugin : http://www.malsup.com/jquery/form/
+        var contact_options = { 
+                            target: '#message-sent',
+                            beforeSubmit: function(){
+                                                    $('#contact-loader').fadeIn('fast');
+                                                    $('#message-sent').fadeOut('fast');
+                                            }, 
+                            success: function(){
+                                                $('#contact-loader').fadeOut('fast');
+                                                $('#message-sent').fadeIn('fast');
+                                                $('#contact-form').resetForm();
+                                            }
+            }; 
+
+        $('#contact-form').validate({
+            submitHandler: function(form) {
+                $(form).ajaxSubmit(contact_options);
+            }
+        });
     }
 
     function aboutSetup () {
-    	$('#about').height($(window).height());
+        $('#about').height($(window).height());
 
-    	$('.three-columns').css({
-    		'width' 	: $(window).width() - mini,
-    		'height' 	: $(window).height(),
-    		'left' 		: mini,
-    		'position'	: 'absolute',
-    		'top'		: 0
-    	});
+        $('.three-columns').css({
+            'width'     : $(window).width() - mini,
+            'height'    : $(window).height(),
+            'left'      : mini,
+            'position'  : 'absolute',
+            'top'       : 0
+        });
     }
 
     function portfolioSetup () {
         var h = $(window).height(),
             w = $(window).width();
 
-    	$('#portfolio').height( h );
+        $('#portfolio').height( h );
 
-    	$('.three-rows').css({
-    		'width' 	: w - mini,
-    		'height' 	: h,
-    		'left' 		: mini,
-    		'position'	: 'absolute',
-    		'top'		: 0
-    	});
+        $('.three-rows').css({
+            'width'     : w - mini,
+            'height'    : h,
+            'left'      : mini,
+            'position'  : 'absolute',
+            'top'       : 0
+        });
 
         $('.portfolio-element').width( w );
         $('.portfolio-article-hero').height( h ).width( w );
@@ -79,12 +133,12 @@ jQuery(document).ready(function($) {
     }
 
     function aboutFunctionality () {
-    	$('.three-columns > div').click(function(){
-    		$that = $(this);
-    		if($that.hasClass('active')) $that.removeClass('active').siblings().removeClass('standby');
-    		else if($that.hasClass('standby')) $that.removeClass('standby').siblings().removeClass('active standby');
-    		else $that.addClass('active').siblings().addClass('standby');
-    	});
+        $('.three-columns > div').click(function(){
+            $that = $(this);
+            if($that.hasClass('active')) $that.removeClass('active').siblings().removeClass('standby');
+            else if($that.hasClass('standby')) $that.removeClass('standby').siblings().removeClass('active standby');
+            else $that.addClass('active').siblings().addClass('standby');
+        });
     }
 
     function portfolioFunctionality () {
@@ -139,64 +193,94 @@ jQuery(document).ready(function($) {
 
     function handleLoadComplete(event) {
 
-    	$introText.fadeIn(2000, function () {
+        $introText.fadeIn(2000, function () {
 
-    		$introOverlay.fadeOut(1000, function(){
-    			startHome();
-    			$findout.fadeIn();
-    		});
+            $introOverlay.fadeOut(1000, function(){
+                startHome();
+                $('.findoutwhy').fadeIn();
+                $('.magic').css('position','initial');
+            });
 
-    		$header.removeClass('closed');
-    	});
+            $header.removeClass('closed');
+        });
 
     }
 
     function startHome () {
-    	
-		var counter = 0;  // home background position counter
+        
+        var counter = 0;  // home background position counter
 
-		setInterval(function () {
-			console.log(counter);
-			$introOverlay.fadeIn(500, function () {
-				if ( counter == manifest.length-1 ) counter=0;
-				else counter++;
-				$intro.css( 'background-image' , 'url('+manifest[counter]+')' );
-				$introOverlay.fadeOut(600);
-			})
+        setInterval(function () {
+            // $introOverlay.fadeIn(500, function () {
+            //  if ( counter == manifest.length-1 ) counter=0;
+            //  else counter++;
+            //  $intro.css( 'background-image' , 'url('+manifest[counter]+')' );
+            //  $introOverlay.fadeOut(600);
+   //              wp();
+            // });
+
+            if ( counter == manifest.length-1 ) counter=0;
+            else counter++;
+            $intro.css( 'background-image' , 'url('+manifest[counter]+')' );
 		}, 5000);
 
-		wp();
+		
     }
 
     function wp() {
-    	$('#intro').waypoint(function(direction) {
-    		$('#nav li a').removeClass('active');
-    		$header.removeClass('mini');
-		});
+    	$('#intro').waypoint({
+            handler: function(direction) {
+                $('#nav li a').removeClass('active');
+                $header.removeClass('mini');
+                $('.findoutwho').hide();
+                $('.findouthow').hide();
+                $('.findoutwhy').fadeIn();
+            },
+            offset: '-50%'
+        });
 
-    	$('#about').waypoint(function(direction) {
-    		$('#nav li a').removeClass('active');
-			$('#nav-about').addClass('active');
-			$header.addClass('mini');
-		});
+    	$('#about').waypoint({
+            handler: function(direction) {
+                $('#nav li a').removeClass('active');
+                $('#nav-about').addClass('active');
+                $header.addClass('mini');
+                $('.findoutwho').fadeIn();
+                $('.findouthow').fadeOut();
+                $('.findoutwhy').fadeOut();
+            },
+            offset: '0%'
+        });
 
-		$('#team').waypoint(function(direction) {
-    		$('#nav li a').removeClass('active');
-			$('#nav-team').addClass('active');
-			$header.addClass('mini');
-		});
+		$('#team').waypoint({
+            handler: function(direction) {
+                $('#nav li a').removeClass('active');
+                $('#nav-team').addClass('active');
+                $header.addClass('mini');
+                $('.findouthow').fadeIn();
+                $('.findoutwho').fadeOut();
+            },
+            offset: '0%'
+        });
 
-		$('#portfolio').waypoint(function(direction) {
-    		$('#nav li a').removeClass('active');
-			$('#nav-portfolio').addClass('active');
-			$header.addClass('mini');
-		});
+		$('#portfolio').waypoint({
+            handler: function(direction) {
+                $('#nav li a').removeClass('active');
+                $('#nav-portfolio').addClass('active');
+                $header.addClass('mini');
+                $('.findoutwho').fadeOut();
+                $('.findouthow').fadeOut();
+            },
+            offset: '0%'
+        });
 
-		$('#contact').waypoint(function(direction) {
-    		$('#nav li a').removeClass('active');
-			$('#nav-contact').addClass('active');
-			$header.addClass('mini');
-		});
+		$('#contact').waypoint({
+            handler: function(direction) {
+                $('#nav li a').removeClass('active');
+                $('#nav-contact').addClass('active');
+                $header.addClass('mini');
+            },
+            offset: '0%'
+        });
     }
 
     init();

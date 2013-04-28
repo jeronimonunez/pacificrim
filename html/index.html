@@ -35,7 +35,7 @@
             <div id="intro">
                 <div class="story">
                     <div class="magic"></div>
-                    <div class="findout"><!-- <img src="img/findout.png" alt=""> --></div>
+                    <div class="findout findoutwhy"><a href="#about" class="why">find out</a></div>
                 </div> <!--.story-->
                 <div class="overlay"></div>
             </div> <!--#intro-->
@@ -129,6 +129,7 @@
                             </div>
                         </div>
                     </div>  <!-- .three-columns -->
+                    <div class="findout findoutwho"><a href="#team" class="who">find out</a></div>
                 </div> <!--.story-->
                 
             </div> <!--#about-->
@@ -145,6 +146,7 @@
                             <p>He has many years of experience in the marketing of high end real estate and public companies, being an investor and owner himself. He’s also on the executive team and a director of various public companies</p>
                         </div>
                     </div>
+                    <div class="findout findouthow"><a href="#portfolio" class="how">find out</a></div>
                 </div> <!--.story-->
             </div> <!--#team-->
             
@@ -199,12 +201,13 @@
                                 <div class="boxx a">
                                     <h2>Contact Form</h2>
                                     <p class="box-ex">Questions, Comments? Use the form below!</p>
-                                    <form action="#" id="contact-form">
+                                    <form action="contact.php" id="contact-form" method="post">
                                         <input type="text" placeholder="Name" name="name">
                                         <input type="text" placeholder="Email Address" name="email">
                                         <textarea name="message" placeholder="Comments"></textarea>
                                         <button type="submit">Send Comment</button>
                                     </form>
+                                    <p id="message-sent">Thanks for Your Message! <br /> We will get in touch shortly.</p>
                                 </div>
                                 <div class="boxx c">
                                     <h2>Address</h2>
@@ -473,6 +476,9 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
         <script src="js/plugins.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.js"></script>
+
         <script src="js/main.js"></script>
 
         <script>
