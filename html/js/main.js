@@ -21,6 +21,12 @@ jQuery(document).ready(function($) {
         $closeBtn = $('.close-btn');
 
     function init() {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+            if (location.hash) {
+                window.scrollTo(0, 0);
+            }
+        }, 1);
 
         // Push each item into our manifest
         manifest = [
@@ -152,7 +158,7 @@ jQuery(document).ready(function($) {
                 'margin-left' : '-100%'
             }, function () {
                 $container.hide();
-                $('body').scrollTop(0);
+                $('html, body').scrollTop(0);
 
                 $( target ).fadeIn(300, function () {
                     $header.addClass('mini');

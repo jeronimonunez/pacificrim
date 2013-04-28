@@ -364,6 +364,7 @@ a{
     height: 900px;
     padding: 50px 0 0 0; 
 }
+#message-sent{display: none;}
 
 .story{
     margin: 0 auto;
