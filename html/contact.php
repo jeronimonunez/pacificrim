@@ -14,7 +14,7 @@
                     $message = stripslashes($message);
             }
 
-             $address = "robot@psdtohtmlwp.com";
+             $address = "president@pacificrimgroup.ca";
 
              $e_subject = 'Simpler Landing: You\'ve Received a Message From ' . $name . '.';
 

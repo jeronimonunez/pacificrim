@@ -75,6 +75,7 @@ jQuery(document).ready(function($) {
         $('#team').parallax("50%", 0.3);
         $('#portfolio').parallax("50%", 0.3);
         $('#contact').parallax("50%", 0.3);
+        $('.portfolio-article-hero').parallax("50%",.4)
 
         $findout.find('a').click(function(e){
             e.preventDefault();
@@ -104,6 +105,15 @@ jQuery(document).ready(function($) {
             submitHandler: function(form) {
                 $(form).ajaxSubmit(contact_options);
             }
+        });
+
+        fadeArrows();
+    }
+
+    function fadeArrows(){
+        
+        $findout.find('span').fadeOut(1000, function(){
+            $(this).fadeIn(1000, fadeArrows);
         });
     }
 
