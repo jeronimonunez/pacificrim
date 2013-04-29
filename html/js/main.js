@@ -107,13 +107,15 @@ jQuery(document).ready(function($) {
             }
         });
 
-        fadeArrows();
+        setInterval(fadeArrows,2001);
+
+        $('.fancy').fancybox();
     }
 
     function fadeArrows(){
         
         $findout.find('span').fadeOut(1000, function(){
-            $(this).fadeIn(1000, fadeArrows);
+            $findout.find('span').fadeIn(1000);
         });
     }
 
