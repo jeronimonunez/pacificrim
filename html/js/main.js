@@ -75,6 +75,10 @@ jQuery(document).ready(function($) {
         $('#team').parallax("50%", 0.3);
         $('#portfolio').parallax("50%", 0.3);
         $('#contact').parallax("50%", 0.3);
+<<<<<<< HEAD
+=======
+        $('.portfolio-article-hero').parallax("50%",.4)
+>>>>>>> origin/lastest
 
         $findout.find('a').click(function(e){
             e.preventDefault();
@@ -105,6 +109,20 @@ jQuery(document).ready(function($) {
                 $(form).ajaxSubmit(contact_options);
             }
         });
+<<<<<<< HEAD
+=======
+
+        setInterval(fadeArrows,2001);
+
+        $('.fancy').fancybox();
+    }
+
+    function fadeArrows(){
+        
+        $findout.find('span').fadeOut(1000, function(){
+            $findout.find('span').fadeIn(1000);
+        });
+>>>>>>> origin/lastest
     }
 
     function aboutSetup () {
