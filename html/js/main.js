@@ -8,7 +8,8 @@ jQuery(document).ready(function($) {
     	loader,
     	manifest,
 
-    	mini = 158,
+    	//mini = 158,
+        mini,
 
     	$intro = $('#intro'),
 		$introOverlay = $intro.find('.overlay'),
@@ -47,6 +48,9 @@ jQuery(document).ready(function($) {
         preload.addEventListener("complete", handleLoadComplete);
         preload.loadManifest(manifest);
 
+        mini = $header.width() - ($header.width()*24/100);
+
+        homeSetup();
         aboutSetup();
         portfolioSetup();
         aboutFunctionality();
@@ -62,8 +66,10 @@ jQuery(document).ready(function($) {
         
 
         $(window).resize(function () {
+            homeSetup();
             aboutSetup();
             portfolioSetup();
+
         });
 
         $('#intro').parallax("50%", 0.1);
@@ -110,6 +116,7 @@ jQuery(document).ready(function($) {
         setInterval(fadeArrows,2001);
 
         $('.fancy').fancybox();
+
     }
 
     function fadeArrows(){
@@ -117,6 +124,10 @@ jQuery(document).ready(function($) {
         $findout.find('span').fadeOut(1000, function(){
             $findout.find('span').fadeIn(1000);
         });
+    }
+
+    function homeSetup() {
+        $('#intro, .overlay').height($(window).height());
     }
 
     function aboutSetup () {
@@ -148,6 +159,10 @@ jQuery(document).ready(function($) {
         $('.portfolio-element').width( w );
         $('.portfolio-article-hero').height( h ).width( w );
         $('.content-container').width( w - mini - 30 - 30 ).css('margin-left', mini+30);
+
+        /* Team setup */
+        /* Contact setup */
+        $('#team, #contact').height( h );
     }
 
     function aboutFunctionality () {
@@ -173,6 +188,7 @@ jQuery(document).ready(function($) {
                 $('html, body').scrollTop(0);
 
                 $( target ).fadeIn(300, function () {
+                    $(this).find('.portfolio-logo').fadeIn();
                     $header.addClass('mini');
                 });
             });
@@ -186,7 +202,7 @@ jQuery(document).ready(function($) {
         $('.portfolio-element').fadeOut(300, function () {
             $container.show();
             $(window).scrollTop($('#portfolio').offset().top);
-            $container.animate({
+            $container.delay(300).animate({
                 'margin-left' : '0'
             });
             enableWaypoints();
@@ -220,6 +236,11 @@ jQuery(document).ready(function($) {
             });
 
             $header.removeClass('closed');
+
+            setTimeout(function(){
+                $('.twitter-timeline').animate({'top': $(window).height() - 300});
+            }, 2000)
+            
         });
 
     }
