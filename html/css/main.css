@@ -2,7 +2,7 @@
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
 
-@import url(http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,400italic|Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed|Open+Sans:400,700);
 
 html,
 button,
@@ -16,7 +16,7 @@ body {
     font-size: 1em;
     line-height: 1.4;
     background: #000;
-    font-family: 'Quattrocento Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 ::-moz-selection {
@@ -168,11 +168,11 @@ a{
     background: url(../img/findout.png) 50% 100% no-repeat;
 }
 .findouthow a{
-    color: #6f6f6f;
+    color: #fff;
     
 }
 .findout a .how{
-    background: url(../img/findouthow.png) 50% 100% no-repeat;
+    background: url(../img/findout.png) 50% 100% no-repeat;
 }
 .findout a .who{
     background: url(../img/findoutwho.png) 50% 100% no-repeat;
@@ -279,15 +279,18 @@ a{
 .about-text{
     display: none;
     float: right;
-    width: 60%;
-    margin: 180px 3em 0 0;
+    width: 65%;
+    margin: 40px 3em 0 0;
 }
 .light-box{
-    font-size: 1.1em;
+    font-size: .8em;
     color: #000;
     padding: 2em;
     background: white;
     background: rgba(255,255,255,0.8);
+}
+.light-box p:first-child{
+    margin-top: 0;
 }
 .four-boxes{
     overflow: hidden;
@@ -298,18 +301,18 @@ a{
 .box {
     float: left;
     width: 48%;
-    min-height: 254px;
+    min-height: 310px;
     background: #000;
     background: rgba(0,0,0,.8);
     margin: 0% 1% 1em 1%;
 }
 .box h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin: 10px 10px 3px;
     font-weight: normal;
 }
 .box p, .box blockquote, .box li {
-    font-size: 1.1em;
+    font-size: .8em;
     margin: 5px 0;
 }
 .box blockquote{
@@ -322,13 +325,19 @@ a{
 .box-copy p:first-child{
     margin-top: 0;
 }
+#history .about-text,
+#services .about-text{
+    margin-top: 150px;
+}
 
 #team{
-    /*background: url(../img/thirdBG.jpg) 50% 0 no-repeat fixed;*/
-    background: #000;
+    background: url(../img/team-bg.jpg) 50% 50% no-repeat fixed;
+    -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
     color: #fff;
     height: 900px;
-    padding: 100px 0 0 0;   
+    padding: 0;   
 }
 #team .story{
     display: table;
@@ -339,19 +348,18 @@ a{
 }
 #team h5{
     font-weight: normal;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 0;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 .team-copy{
-    
+    color: #000;
     margin: 0 auto;
     display: table-cell;
 vertical-align: middle;
-padding: 0 20%;
 }
 .team-copy p {
-    font-size: 1.1em;
+    font-size: .8em;
 }
 .team-copy img{
     float: left;
@@ -361,6 +369,14 @@ padding: 0 20%;
     display: block;
     overflow: hidden;
 }
+.team-box{
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+    float: left;
+    background: #fff;
+    background: rgba(255,255,255,.5);
+}
 
 #portfolio{
     background: #fafafa;
@@ -368,7 +384,11 @@ padding: 0 20%;
     height: 1300px;
 }
 #contact{
-    background: #000;
+    background: url(../img/contact-bg.jpg) 50% 50% fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    
     color: white;
     height: 900px;
     padding: 50px 0 0 0; 
@@ -398,7 +418,14 @@ padding: 0 20%;
     height: 100%;
     left: 0;
     top: 0;
-    background: rgba(0,0,0,.7);
+    background-color: rgba(0,0,0,.7);
+    background-image: url(../img/header-bg.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    background-size: contain;
+    
     z-index: 9999;
     left: 0;
     -webkit-transition: all 300ms ease;
@@ -449,7 +476,7 @@ padding: 0 20%;
 }
 #nav li a.active{
     font-weight: bold;
-    font-family: 'Quattrocento Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.3em;
 }
 .brand {
@@ -573,6 +600,7 @@ padding: 0 20%;
     overflow: hidden;
     -webkit-background-size: cover;
     background-size: cover;
+    background-attachment: fixed;
 }
 .portfolio-article-hero .content-container{
     height: 100%;
@@ -1001,7 +1029,51 @@ input:-moz-placeholder { color:#666; font-size: .8em }
     position: absolute;
     right: 20px;
     top: 1300px;
+    background: rgba(0,0,0,.7);
+    width: 300px;
+    padding: 10px;
+    height: 280px;
 }
+.twitter-timeline h2{
+    text-align: right;
+    font-size: 1.3em;
+    margin: 0;
+}
+#tweets{
+    background: rgba(255,255,255,0.9);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 255px;
+}
+.mk-stream{
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+}
+.mk-stream li{
+    color: #333;
+    font-size: 12px;
+    clear: both;
+    margin: 5px 0;
+    overflow: hidden;
+}
+.mk-stream li p{
+    margin: 0;
+    margin-left: 77px;
+}
+.mk-stream li a {
+    color: #000;
+}
+.mk-stream-time{
+    float: left;
+    width: 70px;
+    font-size: 1.2em;
+}
+.mk-stream-time.icon-twitter:before{
+    font-size: 1.2em;
+    display: block;
+}
+
 
 
 /* ==========================================================================

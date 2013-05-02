@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
         $('#team').parallax("50%", 0.3);
         $('#portfolio').parallax("50%", 0.3);
         $('#contact').parallax("50%", 0.3);
-        $('.portfolio-article-hero').parallax("50%",.4)
+        $('.portfolio-article-hero').parallax("50%",.1)
 
         $findout.find('a').click(function(e){
             e.preventDefault();
@@ -169,7 +169,7 @@ jQuery(document).ready(function($) {
         $('.three-columns > div').click(function(){
             $that = $(this);
             if($that.hasClass('active')) $that.removeClass('active').siblings().removeClass('standby');
-            else if($that.hasClass('standby')) $that.removeClass('standby').siblings().removeClass('active standby');
+            else if($that.hasClass('standby')) $that.addClass('active').removeClass('standby').siblings().removeClass('active').addClass('standby');
             else $that.addClass('active').siblings().addClass('standby');
         });
     }
