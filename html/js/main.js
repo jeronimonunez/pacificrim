@@ -19,7 +19,9 @@ jQuery(document).ready(function($) {
 
         $container = $('.container'),
 
-        $closeBtn = $('.close-btn');
+        $closeBtn = $('.close-btn'),
+
+        isPortfolioOpened = false;
 
     function init() {
         setTimeout(function() {
@@ -190,16 +192,33 @@ jQuery(document).ready(function($) {
                 $( target ).fadeIn(300, function () {
                     $(this).find('.portfolio-logo').fadeIn();
                     $header.addClass('mini');
+                    isPortfolioOpened = true;
                 });
+
+                $('#nav li a').removeClass('active');
+                $('#nav-portfolio').addClass('active');
             });
         });
 
 
         $closeBtn.click( closeElement );
+
+        $('.portfolio-element h2 a').click(function(){
+            $('html, body').animate({
+                scrollTop: $(window).height()
+            }, 1000);
+        });
+
+        $('#nav a').click( function(){
+            if(isPortfolioOpened){
+                closeElement();
+            }
+        });
     }
 
     function closeElement () {
         $('.portfolio-element').fadeOut(300, function () {
+            isPortfolioOpened = false;
             $container.show();
             $(window).scrollTop($('#portfolio').offset().top);
             $container.delay(300).animate({
